@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Meta etiketleri, karakter seti ve cihazın ekran özelliklerini belirleme -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-....." crossorigin="anonymous" />
+    <!-- Sayfa başlığı -->
+    <title>KAİDEF</title>
+    
+    <!-- Bootstrap stil dosyası -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <!-- Sayfa özel CSS stilleri -->
+    <style>
+        /* Genel stil kuralları */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .carousel-inner img {
+            border-radius: 20px 20px 20px 20px;
+            width: 100%;
+            height: 400px; /* Resim boyutunu ayarla */
+            object-fit: cover;
+			border-radius: 20px;
+        }
+
+        .featured-section {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .featured-image {
+            height: 400px; /* Arka plan resmi boyutunu ayarla */
+            width: 100%; /* Yeni ekledim */
+            border-radius: 20px;
+        }
+
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+        }
+
+        .featured-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+
+        /* Navbar ve menü stilleri */
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand,
+        .navbar-text {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-right: 20px; /* Ayıraç eklemek için sağa boşluk bırakalım */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            display: inline-block;
+        }
+
+		
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1;
+    min-width: 130px;
+    width:330px; /* Genişlik değerini istediğiniz gibi ayarlayabilirsiniz */
+}
+
+.nav-item:hover .submenu {
+    display: flex;
+}
+
+.submenu a {
+    color: #555;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submenu a:hover {
+    background-color: #e44d26;
+    color: #fff;
+}
+
+.submenu li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+		
+		  #sponsorSlider {
+            max-width: 1100px; /* Slider'ın maksimum genişliği */
+			max-height:200px;
+            margin: 0 auto; /* Ortalama konumlandırma */
+			
+        }
+		
+    </style>
+
+
+
+</head>
+
+<body>
+<!-- Navbar bölümü -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <!-- Ana sayfa linki ve başlık -->
+        <a class="navbar-brand" href="#">KAİDEF</a>
+        <p class="navbar-text">Kocaeli Anadolu İlleri Dernekler Federasyonu</p>
+
+        <!-- Mobil cihazlarda görünen menü butonu -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menü öğeleri -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Anasayfa linki -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Anasayfa</a>
+                </li>
+                <!-- Hakkında linki ve alt menü -->
+           <li class="nav-item">
+    <a class="nav-link">Hakkında</a>
+    <ul class="submenu">
+        <li><a href="../hakkında/federasyon.php">Federasyon hakkında</a></li>
+        <li><a href="../hakkında/yarısma.php">Yarışma Hakkında</a></li>
+        <li><a href="../hakkında/burs.php">Burs Hakkında</a></li>
+    </ul>
+</li>
+
+                <!-- İletişim linki -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../iletisim/iletisim.html">İletişim</a>
+                </li>
+            </ul>
+			
+        </div>
+    </div>
+</nav>
+
+
+   
+    <!-- Kart (Card) bölümü -->
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body  center">
+				<h3 class="card-title text-center"><b>Yarışma Formu</b></h3>
+                <form action="../php/yarisma.php" method="POST">
+                    <div class="form-group">
+						<!--ad formu-->
+                        <label for="ad">Ad:</label>
+                        <input type="text" class="form-control" name="ad" id="ad" placeholder="Adınız" >
+                    </div>
+					<!--soyad formu-->
+                    <div class="form-group">
+                        <label for="soyad">Soyad:</label>
+                        <input type="text" class="form-control" name="soyad"  id="soyad" placeholder="Soyadınız">
+                    </div>
+					<!--kocaeli ikamet adresi formu-->
+                     <div class="form-group">
+                        <label for="adres">Kocaelideki İkamet Adresiniz:</label>
+                        <input type="text" class="form-control" name="adres"  id="adres" placeholder="İkamet adresiniz">
+                    </div>
+					<!--e-posta adresi formu-->
+					 <div class="form-group">
+                        <label for="eposta"><i class="fas fa-envelope"></i> Eposta Adresiniz:</label>
+                        <input type="text" class="form-control" name="eposta"  id="eposta" placeholder="Eposta Adresiniz">
+                    </div>
+					<!--facebook hesabı formu-->
+					   <div class="form-group">
+                        <label for="facebook"><i class="fab fa-facebook"></i> Facebook Hesabınız:</label>
+                        <input type="text" class="form-control" name="facebook"  id="facebook" placeholder="Facebook Hesabınız">
+                    </div>
+					<!--twitter hesabı formu-->
+                     <div class="form-group">
+                        <label for="twitter"><i class="fab fa-twitter"></i> Twitter Hesabınız</label>
+                        <input type="text" class="form-control" name="twitter"  id="twitter" placeholder="Twiitter Hesabınız">
+                    </div>
+					<!--instagram hesabı formu-->
+					 <div class="form-group">
+                        <label for="instagram"><i class="fab fa-instagram"></i> İnstagram Hesabınız:</label>
+                        <input type="text" class="form-control" name="instagram"  id="instagram" placeholder="İnstagram Hesabınız">
+                    </div>
+					<!--telefon formu-->
+					<div class="form-group">
+                        <label for="telefon">Telefon Numaranız:</label>
+                        <input type="text" class="form-control" name="telefon"  id="telefon" placeholder="Telefon Numaranız">
+                    </div>
+					<!--alternatif telefon formu-->
+						<div class="form-group">
+                        <label for="telefon1">Alternatif Telefon Numaranız:</label>
+                        <input type="text" class="form-control" name="telefon1"  id="telefon1" placeholder="Alternatif Telefon Numaranız">
+                    </div>
+					<!--doğum tarihi formu-->
+					<div class="form-group">
+                        <label for="telefon">Doğum Tarihiniz:</label>
+                      <input type="date" class="form-control" id="dogumtarih" name="dogumtarih" >
+                    </div>
+				<!---->
+					
+                   <div class="btn-group-toggle" data-toggle="buttons">
+					    <label for="">Cinsiyetiniz:</label><br>
+                  <label class="btn btn-success active">
+                  <input type="radio" name="cinsiyet" value="Erkek" autocomplete="off" checked> Erkek
+                  </label>
+                  <label class="btn btn-success">
+                  <input type="radio" name="cinsiyet" value="Kadın" autocomplete="off"> Kadın
+                  </label>
+                 </div>
+					<br>
+					<!-- -->
+                 <div class="form-group">
+                 <label for="egitim">Eğitim Durumunuz:</label>
+                 <select class="form-control" id="egitim" name="egitim">
+                 <option value="ilkokul">ilkokul</option>
+                 <option value="ortaokul">ortaokul</option>
+					  <option value="lise">lise</option>
+					  <option value="universite">üniversite</option>
+					  <option value="yukseklisans">yükseklisans</option>
+                 </select>
+                 </div>
+					<!-- -->
+					 <div class="form-group">
+                        <label for="ogrenci_universite"> Öğrenci İseniz Hangi Üniversitede okuyorsunuz:</label>
+                        <input type="text" class="form-control" name="ogrenci_universite"  id="ogrenci_universite" placeholder="Hangi üniversitede okuyorsunuz">
+                    </div>
+					
+					 <div class="form-group">
+                        <label for="sahne_deneyim">Daha önce sahne deneyiminiz varmı?:</label>
+                        <input type="text" class="form-control" name="sahne_deneyim"  id="sahne_deneyim" placeholder="Sahne deneyiminiz varmı">
+                    </div>
+					
+					
+					
+					
+					
+						 <!--bitmedi-->
+					<button type="submit" class="btn btn-primary" name="kaydet" >Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+		
+		 <!-- Sponsor slider bölümü -->
+<div id="sponsorSlider" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+    <div class="carousel-inner">
+        <!-- Birinci sponsor -->
+        <div class="carousel-item active" style="background-image: url('your_image.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+
+            <!-- İçeriğiniz buraya gelebilir -->
+            <img src="https://www.acibadem.com.tr/hayat/Images/YayinMakaleler/bu-10-test-sagliginiz-icin-onemli_6381_1.jpg" class="d-block w-100" alt="Your Image" style="height: 200px;">
+
+        </div>
+
+        <!-- İkinci sponsor -->
+        <div class="carousel-item" style="background-image: url('your_image.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+
+            <!-- İçeriğiniz buraya gelebilir -->
+            <img src="https://truvamagazine.com/wp-content/uploads/2020/03/test-1.jpg" class="d-block w-100" alt="Your Image" style="height: 200px;">
+
+        </div>
+
+        <!-- Diğer sponsorlar buraya eklenebilir -->
+
+    </div>
+
+    <!-- Sponsor slider navigation -->
+    <a class="carousel-control-prev" href="#sponsorSlider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="carousel-control-next" href="#sponsorSlider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+</div>
+
+
+   <br>
+   <!-- Sayfa alt kısmı (footer) -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 KAİDEF - Kocaeli Anadolu İlleri Dernekler Federasyonu</p>
+    </footer>
+    
+    <!-- Bootstrap JavaScript kütüphaneleri -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+		
+</body>
+
+</html>
